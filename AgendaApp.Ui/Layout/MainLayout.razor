@@ -1,0 +1,62 @@
+﻿@inherits LayoutComponentBase
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            @if (IsAuthenticated)
+            {
+                <div class="text-end">
+                    <strong>@pessoa.Nome</strong> - @pessoa.Email
+                    <button @onclick="Logout" class="btn btn-outline-secondary btn-sm ms-3">
+                        Sair da agenda
+                    </button>
+                </div>
+            }
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@using AgendaApp.UI.Services
+@using AgendaApp.UI.Dtos
+@using AgendaApp.Ui.Dtos
+
+@inject AuthService Auth
+
+@code {
+
+    private bool IsAuthenticated = false;
+    private AutenticarPessoaResponseDto pessoa;
+
+    /*
+    * Método executado quando o componente for aberto
+    */
+    protected override async Task OnInitializedAsync()
+    {
+        //verificando se o usuário está autenticado
+        if (await Auth.IsLoggedIn())
+        {
+            IsAuthenticated = true;
+            pessoa = await Auth.GetData();
+        }
+    }
+
+    /*
+    * Função para fazer o logout do usuário
+    */
+    private async Task Logout()
+    {
+        //apagar os dados da local storage
+        //e redirecionar para a página inicial
+        await Auth.SignOut();
+    }
+}
+
+
+

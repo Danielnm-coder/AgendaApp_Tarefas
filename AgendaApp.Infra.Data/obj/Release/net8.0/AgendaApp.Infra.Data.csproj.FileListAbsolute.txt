@@ -1,0 +1,15 @@
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\bin\Release\net8.0\AgendaApp.Infra.Data.deps.json
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\bin\Release\net8.0\AgendaApp.Infra.Data.dll
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\bin\Release\net8.0\AgendaApp.Infra.Data.pdb
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\bin\Release\net8.0\AgendaApp.Domain.dll
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\bin\Release\net8.0\AgendaApp.Domain.pdb
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\AgendaApp.Infra.Data.csproj.AssemblyReference.cache
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\AgendaApp.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\AgendaApp.Infra.Data.AssemblyInfoInputs.cache
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\AgendaApp.Infra.Data.AssemblyInfo.cs
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\AgendaApp.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\AgendaAp.B79A7CB8.Up2Date
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\AgendaApp.Infra.Data.dll
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\refint\AgendaApp.Infra.Data.dll
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\AgendaApp.Infra.Data.pdb
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Data\obj\Release\net8.0\ref\AgendaApp.Infra.Data.dll

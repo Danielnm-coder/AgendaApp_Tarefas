@@ -1,0 +1,116 @@
+﻿@* Mapeamento da rota de navegação do componente. *@
+@page "/"
+
+@* Importar as classes de modelo de dados *@
+@using AgendaApp.UI.Models
+@using AgendaApp.UI.Dtos
+@using AgendaApp.UI.Settings
+@using AgendaApp.UI.Services
+@using AgendaApp.Ui.Dtos
+@using AgendaApp.Ui.Models
+
+<div class="m-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="mt-2">Autenticação de acesso</h3>
+            <p>Informe os seus dados para entrar na agenda.</p>
+
+            <hr />
+
+            @if (!string.IsNullOrEmpty(mensagemErro))
+            {
+                <div class="alert alert-danger">
+                    <strong>@mensagemErro</strong>
+                </div>
+            }
+
+            @* desenhando o formulário *@
+            <EditForm Model="@model" OnValidSubmit="@OnSubmit">
+
+                @* Habilitando as validações *@
+                <DataAnnotationsValidator />
+
+                <div class="mb-3">
+                    <label>Email de acesso:</label>
+                    <InputText class="form-control" @bind-Value="@model.Email" />
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.Email)" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Senha de acesso:</label>
+                    <InputText type="password" class="form-control" @bind-Value="@model.Senha" />
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.Senha)" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-primary" value="Acessar Sistema" />
+                </div>
+
+                <div class="mb-3">
+                    Não possui conta? <NavLink href="criar-pessoa">Cadastre-se aqui!</NavLink>
+                </div>
+
+            </EditForm>
+
+        </div>
+    </div>
+</div>
+
+@* Injeção de dependência de HttpClient *@
+@inject HttpClient Http
+
+@* Injeção de dependência da classe de serviço *@
+@inject AuthService Auth
+
+@* Injeção de dependência do NavigationManager *@
+@inject NavigationManager Navigation
+
+@* Área para programação do código C# da página *@
+@code {
+
+    //declarar e instanciando o objeto para capturar os dados do formulário
+    private AutenticarPessoaViewModel model = new AutenticarPessoaViewModel();
+
+    //variável para exibir mensagem de erro
+    private string mensagemErro;
+
+    /*
+    * Método executado quando a página for aberta
+    */
+    protected override async Task OnInitializedAsync()
+    {
+        if (await Auth.IsLoggedIn()) Navigation.NavigateTo("/consultar-tarefas", true);
+    }
+
+    //função para capturar o evento SUBMIT do formulário
+    private async Task OnSubmit()
+    {
+        try
+        {
+            var result = await Http.PostAsJsonAsync(HttpClientSettings.AutenticarPessoa, model);
+
+            if (result.IsSuccessStatusCode)
+            {
+                var response = await result.Content.ReadFromJsonAsync<AutenticarPessoaResponseDto>();
+                await Auth.SignIn(response);
+            }
+            else
+            {
+                var response = await result.Content.ReadFromJsonAsync<ErrorResponseDto>();
+                mensagemErro = response.Message;
+            }
+        }
+        catch (Exception e)
+        {
+            mensagemErro = e.Message;
+        }
+    }
+}
+
+
+

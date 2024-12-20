@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Csharp_atrasado\\AgendaApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8D4A9847-9395-4173-A861-BD36F58A57A8}|AgendaApp.API\\AgendaApp.API.csproj|c:\\csharp_atrasado\\agendaapp\\agendaapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D4A9847-9395-4173-A861-BD36F58A57A8}|AgendaApp.API\\AgendaApp.API.csproj|solutionrelative:agendaapp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DE571E-43D5-48E4-B038-45305D83453F}|AgendaApp.Infra.Data\\AgendaApp.Infra.Data.csproj|c:\\csharp_atrasado\\agendaapp\\agendaapp.infra.data\\settings\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94DE571E-43D5-48E4-B038-45305D83453F}|AgendaApp.Infra.Data\\AgendaApp.Infra.Data.csproj|solutionrelative:agendaapp.infra.data\\settings\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53EDCDFC-DFEF-4D89-A986-1AACAD233449}|AgendaApp.Infra.Message\\AgendaApp.Infra.Message.csproj|c:\\csharp_atrasado\\agendaapp\\agendaapp.infra.message\\helpers\\emailhelpr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53EDCDFC-DFEF-4D89-A986-1AACAD233449}|AgendaApp.Infra.Message\\AgendaApp.Infra.Message.csproj|solutionrelative:agendaapp.infra.message\\helpers\\emailhelpr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53EDCDFC-DFEF-4D89-A986-1AACAD233449}|AgendaApp.Infra.Message\\AgendaApp.Infra.Message.csproj|c:\\csharp_atrasado\\agendaapp\\agendaapp.infra.message\\consumers\\messageconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53EDCDFC-DFEF-4D89-A986-1AACAD233449}|AgendaApp.Infra.Message\\AgendaApp.Infra.Message.csproj|solutionrelative:agendaapp.infra.message\\consumers\\messageconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MongoDBSettings.cs",
+              "DocumentMoniker": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Infra.Data\\Settings\\MongoDBSettings.cs",
+              "RelativeDocumentMoniker": "AgendaApp.Infra.Data\\Settings\\MongoDBSettings.cs",
+              "ToolTip": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Infra.Data\\Settings\\MongoDBSettings.cs",
+              "RelativeToolTip": "AgendaApp.Infra.Data\\Settings\\MongoDBSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T15:18:21.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmailHelpr.cs",
+              "DocumentMoniker": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Infra.Message\\Helpers\\EmailHelpr.cs",
+              "RelativeDocumentMoniker": "AgendaApp.Infra.Message\\Helpers\\EmailHelpr.cs",
+              "ToolTip": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Infra.Message\\Helpers\\EmailHelpr.cs",
+              "RelativeToolTip": "AgendaApp.Infra.Message\\Helpers\\EmailHelpr.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T14:08:37.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.API\\Program.cs",
+              "RelativeDocumentMoniker": "AgendaApp.API\\Program.cs",
+              "ToolTip": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.API\\Program.cs*",
+              "RelativeToolTip": "AgendaApp.API\\Program.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T13:27:34.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessageConsumer.cs",
+              "DocumentMoniker": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Infra.Message\\Consumers\\MessageConsumer.cs",
+              "RelativeDocumentMoniker": "AgendaApp.Infra.Message\\Consumers\\MessageConsumer.cs",
+              "ToolTip": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Infra.Message\\Consumers\\MessageConsumer.cs",
+              "RelativeToolTip": "AgendaApp.Infra.Message\\Consumers\\MessageConsumer.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAQwDUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T12:56:55.738Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

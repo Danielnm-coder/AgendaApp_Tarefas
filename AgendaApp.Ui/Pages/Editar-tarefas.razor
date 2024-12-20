@@ -1,0 +1,63 @@
+﻿@page "/editar-tarefas"
+
+<div class="m-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="mt-2">Edição de tarefas</h3>
+            <p>Utilize os campos abaixo para alterar a tarefa.</p>
+
+            <hr />
+
+            <form>
+
+                <div class="mb-2">
+                    <label>Nome da tarefa:</label>
+                    <input type="text" class="form-control" />
+                </div>
+
+                <div class="mb-2">
+                    <label>Data e hora da tarefa:</label>
+                    <input type="datetime-local" class="form-control" />
+                </div>
+
+                <div class="mb-2">
+                    <label>Descrição:</label>
+                    <textarea class="form-control"></textarea>
+                </div>
+
+                <div class="mb-2">
+                    <label>Prioridade:</label>
+                    <select class="form-select">
+                        <option value="">Escolha uma opção</option>
+                    </select>
+                </div>
+
+                <div class="mb-2">
+                    <input type="submit" class="btn btn-primary" value="Salvar alterações" />
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@using AgendaApp.UI.Services
+
+@inject AuthService Auth
+@inject NavigationManager Navigation
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!await Auth.IsLoggedIn()) Navigation.NavigateTo("/", true);
+    }
+}
+
+
+
+
+
+

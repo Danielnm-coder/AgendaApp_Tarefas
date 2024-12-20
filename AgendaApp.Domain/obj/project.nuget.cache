@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "95hp3mAyGiY=",
+  "success": true,
+  "projectFilePath": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Domain\\AgendaApp.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dn644\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512"
+  ],
+  "logs": []
+}

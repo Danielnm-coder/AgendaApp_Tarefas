@@ -1,0 +1,68 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">AgendaApp.UI</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+
+        @if (!isAuthenticated)
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Acessar Agenda
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="criar-pessoa">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Criar Conta
+                </NavLink>
+            </div>
+        }
+        else
+        {
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="cadastrar-tarefas">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Cadastrar Tarefas
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="consultar-tarefas">
+                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Consultar Tarefas
+                </NavLink>
+            </div>
+        }
+    </nav>
+</div>
+
+@using AgendaApp.UI.Services
+
+@inject AuthService Auth
+
+@code {
+    private bool collapseNavMenu = true;
+    private bool isAuthenticated = false;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    /*
+    * Evento executado quando o componente
+    * for aberto no navegador
+       */
+    protected override async Task OnInitializedAsync()
+    {
+        isAuthenticated = await Auth.IsLoggedIn();
+    }
+}
+
+
+

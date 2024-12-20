@@ -1,0 +1,158 @@
+﻿@page "/consultar-tarefas"
+
+<div class="m-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="mt-2">Consulta de tarefas</h3>
+            <p>Pesquise tarefas pelo períod de datas desejado.</p>
+
+            @if (!string.IsNullOrEmpty(mensagemSucesso))
+            {
+                <div class="alert alert-success">
+                    <strong>@mensagemSucesso</strong>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(mensagemErro))
+            {
+                <div class="alert alert-danger">
+                    <strong>@mensagemErro</strong>
+                </div>
+            }
+
+            <hr />
+
+            <EditForm Model="@model" OnValidSubmit="@OnSubmit">
+
+                @* Habilitando as validações *@
+                <DataAnnotationsValidator />
+
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <InputText type="datetime-local" class="form-control" @bind-Value="@model.DataInicio" />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(() => model.DataInicio)" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <InputText type="datetime-local" class="form-control" @bind-Value="@model.DataFim" />
+                        <div class="text-danger">
+                            <ValidationMessage For="@(() => model.DataFim)" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-success" value="Pesquisar tarefas" />
+                    </div>
+                </div>
+
+            </EditForm>
+
+            @if (model.Tarefas != null)
+            {
+                <div class="table-responsive mt-2">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nome da tarefa</th>
+                                <th>Data e hora</th>
+                                <th>Prioridade</th>
+                                <th>Descrição</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in model.Tarefas)
+                            {
+                                <tr>
+                                    <td>@item.Nome</td>
+                                    <td>@item.DataHora.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>@item.Prioridade.Nome</td>
+                                    <td>@item.Descricao</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary me-1"
+                                                @onclick="(() => OnEdit(item.Id))">
+                                            Editar
+                                        </button>
+                                        <button class="btn btn-sm btn-danger me-1"
+                                                @onclick="(() => OnDelete(item.Id))">
+                                            Excluir
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    Quantidade de tarefas: @model.Tarefas.Count
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@using AgendaApp.UI.Services
+@using AgendaApp.UI.Models
+@using AgendaApp.UI.Settings
+@using AgendaApp.UI.Dtos
+
+@inject AuthService Auth
+@inject NavigationManager Navigation
+@inject HttpClient Http
+
+@code {
+
+    private ConsultarTarefaViewModel model = new ConsultarTarefaViewModel();
+
+    private string mensagemSucesso;
+    private string mensagemErro;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!await Auth.IsLoggedIn()) Navigation.NavigateTo("/", true);
+    }
+
+    private async Task OnSubmit()
+    {
+        mensagemSucesso = string.Empty;
+        mensagemErro = string.Empty;
+
+        try
+        {
+            Http.DefaultRequestHeaders.Authorization
+                = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", await Auth.GetAccessToken());
+
+            var response = await Http.GetAsync(HttpClientSettings.Tarefas + "/" + model.DataInicio + "/" + model.DataFim);
+            if (response.IsSuccessStatusCode)
+            {
+                model.Tarefas = await response.Content.ReadFromJsonAsync<List<TarefaResponseDto>>();
+                mensagemSucesso = "Quantidade de tarefas obtidas: " + model.Tarefas.Count;
+            }
+            else
+                mensagemErro = "Não foi possível realizar a consulta das tarefas.";
+        }
+        catch (Exception e)
+        {
+            mensagemErro = "Falha ao consultar a tarefa: " + e.Message;
+        }
+    }
+
+    private async Task OnEdit(Guid id)
+    {
+
+    }
+
+    private async Task OnDelete(Guid id)
+    {
+
+    }
+}
+
+
+

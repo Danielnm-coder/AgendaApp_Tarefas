@@ -1,0 +1,127 @@
+﻿@* Mapeamento da rota de navegação do componente. *@
+@page "/criar-pessoa"
+
+@using AgendaApp.UI.Models
+@using AgendaApp.UI.Settings
+@using AgendaApp.UI.Dtos
+
+<div class="m-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="mt-2">Criação de conta</h3>
+            <p>Informe os seus dados criar uma conta de acesso.</p>
+
+            <hr />
+
+            @if (!string.IsNullOrEmpty(sucesso))
+            {
+                <div class="alert alert-success">
+                    <strong>@sucesso</strong>
+                </div>
+            }
+            else if (!string.IsNullOrEmpty(erro))
+            {
+                <div class="alert alert-danger">
+                    <strong>@erro</strong>
+                </div>
+            }
+
+            @* desenhando o formulário *@
+            <EditForm Model="@model" OnValidSubmit="@OnSubmit">
+
+                @* Habilitando as validações *@
+                <DataAnnotationsValidator />
+
+                <div class="mb-3">
+                    <label>Nome do usuário:</label>
+                    <InputText class="form-control" @bind-Value="@model.Nome" />
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.Nome)" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Email de acesso:</label>
+                    <InputText class="form-control" @bind-Value="@model.Email" />
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.Email)" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Senha de acesso:</label>
+                    <InputText type="password" class="form-control" @bind-Value="@model.Senha" />
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.Senha)" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Confirme a sua senha:</label>
+                    <InputText type="password" class="form-control" @bind-Value="@model.SenhaConfirmacao" />
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.SenhaConfirmacao)" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-success" value="Realizar Cadastro" />
+                </div>
+
+                <div class="mb-3">
+                    Já possui conta? <NavLink href="" Match="NavLinkMatch.All">Acesse aqui!</NavLink>
+                </div>
+
+            </EditForm>
+
+        </div>
+    </div>
+</div>
+
+@* Injeções de dependência *@
+@inject HttpClient Http
+
+@code {
+
+    //modelo de dados para fazer a captura dos campos do formulário
+    private CriarPessoaViewModel model = new CriarPessoaViewModel();
+
+    //variáveis para exibir mensagens na página
+    private string? sucesso;
+    private string? erro;
+
+    private async Task OnSubmit()
+    {
+        //limpando as mensagens
+        sucesso = string.Empty;
+        erro = string.Empty;
+
+        try
+        {
+            //fazendo a requisição para a API e capturando a resposta
+            var result = await Http.PostAsJsonAsync(HttpClientSettings.CriarPessoa, model);
+
+            //verificando se a requisição obteve sucesso
+            if (result.IsSuccessStatusCode)
+            {
+                var response = await result.Content.ReadFromJsonAsync<CriarPessoaResponseDto>();
+                sucesso = $"Parabéns, {response.Nome}! Sua conta foi criada com sucesso.";
+
+                model = new CriarPessoaViewModel();
+            }
+            else
+            {
+                var response = await result.Content.ReadFromJsonAsync<ErrorResponseDto>();
+                erro = response.Message;
+            }
+        }
+        catch (Exception e)
+        {
+            erro = e.Message;
+        }
+    }
+}
+
+
+

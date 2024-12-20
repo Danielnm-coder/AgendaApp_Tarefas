@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\bin\\Release\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\obj\\Release\\net8.0\\scopedcss\\bundle\\AgendaApp.Ui.styles.css",
+      "PackagePath": "staticwebassets\\AgendaApp.Ui.styles.css"
+    },
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Csharp_atrasado\\AgendaApp\\AgendaApp.Ui\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.AgendaApp.Ui.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.AgendaApp.Ui.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.AgendaApp.Ui.props",
+      "PackagePath": "build\\AgendaApp.Ui.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.AgendaApp.Ui.props",
+      "PackagePath": "buildMultiTargeting\\AgendaApp.Ui.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.AgendaApp.Ui.props",
+      "PackagePath": "buildTransitive\\AgendaApp.Ui.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

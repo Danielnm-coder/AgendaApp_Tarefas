@@ -1,0 +1,125 @@
+﻿@page "/cadastrar-tarefas"
+
+<div class="m-4">
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="mt-2">Cadastro de tarefas</h3>
+            <p>Crie uma tarefa em sua agenda.</p>
+
+            @if (!string.IsNullOrEmpty(mensagemSucesso))
+            {
+                <div class="alert alert-success">
+                    <strong>@mensagemSucesso</strong>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(mensagemErro))
+            {
+                <div class="alert alert-danger">
+                    <strong>@mensagemErro</strong>
+                </div>
+            }
+
+            <hr />
+
+            <EditForm Model="@model" OnValidSubmit="@OnSubmit">
+
+                @* Habilitando as validações *@
+                <DataAnnotationsValidator />
+
+                <div class="mb-2">
+                    <label>Nome da tarefa:</label>
+                    <InputText type="text" class="form-control" @bind-Value="@model.Nome" />
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.Nome)" />
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label>Data e hora da tarefa:</label>
+                    <InputText type="datetime-local" class="form-control" @bind-Value="@model.DataHora" />
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.DataHora)" />
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label>Descrição:</label>
+                    <InputTextArea class="form-control" @bind-Value="@model.Descricao"></InputTextArea>
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.Descricao)" />
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label>Prioridade:</label>
+                    <InputSelect class="form-select" @bind-Value="@model.Prioridade">
+                        <option value="">Escolha uma opção</option>
+                        <option value="1">ALTA</option>
+                        <option value="2">MÉDIA</option>
+                        <option value="3">BAIXA</option>
+                    </InputSelect>
+                    <div class="text-danger">
+                        <ValidationMessage For="@(() => model.Prioridade)" />
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <input type="submit" class="btn btn-success" value="Realizar Cadastro" />
+                </div>
+
+            </EditForm>
+
+        </div>
+    </div>
+</div>
+
+@using AgendaApp.UI.Services
+@using AgendaApp.UI.Models
+@using AgendaApp.UI.Settings
+
+@inject AuthService Auth
+@inject NavigationManager Navigation
+@inject HttpClient Http
+
+@code {
+
+    private CadastrarTarefaViewModel model = new CadastrarTarefaViewModel();
+
+    private string mensagemSucesso;
+    private string mensagemErro;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!await Auth.IsLoggedIn()) Navigation.NavigateTo("/", true);
+    }
+
+    private async Task OnSubmit()
+    {
+        mensagemSucesso = string.Empty;
+        mensagemErro = string.Empty;
+
+        try
+        {
+            Http.DefaultRequestHeaders.Authorization
+                = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", await Auth.GetAccessToken());
+
+            var response = await Http.PostAsJsonAsync(HttpClientSettings.Tarefas, model);
+            if (response.IsSuccessStatusCode)
+            {
+                mensagemSucesso = "Tarefa cadastrada com sucesso.";
+                model = new CadastrarTarefaViewModel();
+            }
+            else
+                mensagemErro = "Não foi possível realizar o cadastro da tarefa.";
+        }
+        catch (Exception e)
+        {
+            mensagemErro = "Falha ao cadastrar a tarefa: " + e.Message;
+        }
+    }
+}
+
+
+

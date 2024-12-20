@@ -1,0 +1,15 @@
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\bin\Debug\net8.0\AgendaApp.Infra.Message.deps.json
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\bin\Debug\net8.0\AgendaApp.Infra.Message.dll
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\bin\Debug\net8.0\AgendaApp.Infra.Message.pdb
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\bin\Debug\net8.0\AgendaApp.Domain.dll
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\bin\Debug\net8.0\AgendaApp.Domain.pdb
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\AgendaApp.Infra.Message.csproj.AssemblyReference.cache
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\AgendaApp.Infra.Message.GeneratedMSBuildEditorConfig.editorconfig
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\AgendaApp.Infra.Message.AssemblyInfoInputs.cache
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\AgendaApp.Infra.Message.AssemblyInfo.cs
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\AgendaApp.Infra.Message.csproj.CoreCompileInputs.cache
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\AgendaAp.536FFBCC.Up2Date
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\AgendaApp.Infra.Message.dll
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\refint\AgendaApp.Infra.Message.dll
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\AgendaApp.Infra.Message.pdb
+C:\Csharp_atrasado\AgendaApp\AgendaApp.Infra.Message\obj\Debug\net8.0\ref\AgendaApp.Infra.Message.dll
